@@ -38,7 +38,8 @@ int main() {
 
     //TODO: revise this value according to your result
     //servo_control(37.222);
-    servo_control(-30.54328530645185); // goal = 5
+    // cw
+    servo_control(-29.033982374885795); // goal = 5
     
     steps = 0;
     t.reset();
@@ -51,7 +52,7 @@ int main() {
     printf("%1.3f\r\n", (float) steps * 6.5 * 3.14 / 32 / time);
 
 
-
+    // ccw
     servo_control(137.24795117482927); // goal = 8
     steps = 0;
     t.reset();
