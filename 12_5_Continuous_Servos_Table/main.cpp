@@ -33,7 +33,9 @@ int main() {
 
    servo.period_ms(20);
 
-   int i = 0;
+
+// counterclockwise
+  int i = 0;
    while (i <= 150) {
 
       servo_control(i);
@@ -50,6 +52,29 @@ int main() {
 
       i += 30;
    }
+//clockwise (actually no need this part)
+//     int i = 0;
+//     while (i >= -150) {
+
+//       servo_control(i);
+
+//       steps = 0;
+//       t.reset();
+//       t.start();
+
+//       ThisThread::sleep_for(8000ms);
+
+//       float time = t.read();
+
+//       printf("%1.3f\r\n", (float)steps * 6.5 * 3.14 / 32 / time);
+
+//       i -= 30;
+//    }
+
+
+
+
+
    servo_control(0);
 
    while(1);
