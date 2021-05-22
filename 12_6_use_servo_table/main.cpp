@@ -28,26 +28,44 @@ void encoder_control() {
 
 int main() {
 
-   pc.set_baud(9600);
+    pc.set_baud(9600);
 
-   encoder_ticker.attach(&encoder_control, .01);
+    encoder_ticker.attach(&encoder_control, .01);
 
-   servo.period_ms(20);
+    servo.period_ms(20);
 
-   while(1) {
+    while(1) {
 
-   //TODO: revise this value according to your result
-   servo_control(37.222);
+    //TODO: revise this value according to your result
+    //servo_control(37.222);
+    servo_control(-30.54328530645185); // goal = 5
+    
+    steps = 0;
+    t.reset();
+    t.start();
 
-   steps = 0;
-   t.reset();
-   t.start();
+    ThisThread::sleep_for(5000ms);
 
-   ThisThread::sleep_for(8000ms);
+    float time = t.read();
 
-   float time = t.read();
+    printf("%1.3f\r\n", (float) steps * 6.5 * 3.14 / 32 / time);
 
-   printf("%1.3f\r\n", (float) steps * 6.5 * 3.14 / 32 / time);
+
+
+    servo_control(137.24795117482927); // goal = 8
+    steps = 0;
+    t.reset();
+    t.start();
+
+    ThisThread::sleep_for(5000ms);
+
+    float time1 = t.read();
+
+    printf("%1.3f\r\n", (float) steps * 6.5 * 3.14 / 32 / time1);
+
+
+
+
 
    }
 }
